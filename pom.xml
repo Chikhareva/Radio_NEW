@@ -53,27 +53,39 @@
                     </execution>
                     <execution>
                         <id>check</id>
-                        <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>CLASS</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>BRANCH</counter>
+                                            <value>COVEREDRATIO</value>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                                <rule>
+                                    <element>METHOD</element>
+                                    <includes>
+                                        <include>next*</include>
+                                        <include>prev*</include>
+                                    </includes>
+                                    <limits>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>COVEREDRATIO</value>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <rules>
-                        <rule>
-                            <limits>
-                                <limit>
-                                    <counter>LINE</counter>
-                                    <value>COVEREDRATIO</value>
-                                    <minimum>100%</minimum>
-                                </limit>
-                            </limits>
-                        </rule>
-                    </rules>
-                </configuration>
             </plugin>
         </plugins>
     </build>
-</project>
 
+</project>

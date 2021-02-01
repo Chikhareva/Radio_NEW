@@ -64,20 +64,20 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-        public void soundVolumePlus () {
-            int currentVolume = this.getCurrentVolume();
-            if (currentVolume >= maxVolume) {
-                return;
-            }
-            this.currentVolume++;
+    public void soundVolumePlus() {
+        int currentVolume = this.getCurrentVolume();
+        if (currentVolume >= maxVolume) {
+            return;
         }
-
-        public void soundVolumeMinos () {
-            int currentVolume = this.getCurrentVolume();
-            if (currentVolume <= minVolume) {
-                return;
-            }
-            this.currentVolume--;
-        }
+        this.currentVolume++;
     }
+
+    public void soundVolumeMinos() {
+        int currentVolume = this.getCurrentVolume();
+        if (currentVolume <= minVolume) {
+            return;
+        }
+        this.currentVolume--;
+    }
+}
 

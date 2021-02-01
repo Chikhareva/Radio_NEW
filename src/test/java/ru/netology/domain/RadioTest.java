@@ -125,7 +125,7 @@ class RadioTest {
     @Test
     public void shouldSoundVolumeMinos2() {
         int currentVolume = -1;
-            orange.setCurrentVolume(currentVolume);
+        orange.setCurrentVolume(currentVolume);
         orange.soundVolumeMinos();
         assertEquals(0, orange.getCurrentVolume());
     }
