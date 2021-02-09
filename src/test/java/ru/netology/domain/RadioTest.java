@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    Radio orange = new Radio();
+    Radio orange = new Radio(10);
 
     @Test
     public void shouldNextStation() {
-        int currentStation = 9;
+        int currentStation = 10;
         orange.setCurrentStation(currentStation);
         orange.nextRadioStation();
         assertEquals(0, orange.getCurrentStation());
@@ -25,7 +25,7 @@ class RadioTest {
 
     @Test
     public void shouldNextStation2() {
-        int currentStation = 10;
+        int currentStation = 11;
         orange.setCurrentStation(currentStation);
         orange.nextRadioStation();
         assertEquals(1, orange.getCurrentStation());
@@ -36,7 +36,7 @@ class RadioTest {
         int currentStation = 0;
         orange.setCurrentStation(currentStation);
         orange.prevRadioStation();
-        assertEquals(9, orange.getCurrentStation());
+        assertEquals(10, orange.getCurrentStation());
     }
 
     @Test
@@ -44,7 +44,7 @@ class RadioTest {
         int currentStation = -1;
         orange.setCurrentStation(currentStation);
         orange.prevRadioStation();
-        assertEquals(9, orange.getCurrentStation());
+        assertEquals(10, orange.getCurrentStation());
     }
 
     @Test
@@ -70,7 +70,7 @@ class RadioTest {
         int currentStation = 2;
         orange.setCurrentStation(currentStation);
         orange.inputRadioStation(RadioStation);
-        assertEquals(2, orange.getCurrentStation());
+        assertEquals(10, orange.getCurrentStation());
     }
 
     @Test
@@ -84,23 +84,23 @@ class RadioTest {
 
     @Test
     public void shouldSoundVolumePlus() {
-        int currentVolume = 10;
+        int currentVolume = 99;
         orange.setCurrentVolume(currentVolume);
         orange.soundVolumePlus();
-        assertEquals(10, orange.getCurrentVolume());
+        assertEquals(100, orange.getCurrentVolume());
     }
 
     @Test
     public void shouldSoundVolumePlus1() {
-        int currentVolume = 5;
+        int currentVolume = 55;
         orange.setCurrentVolume(currentVolume);
         orange.soundVolumePlus();
-        assertEquals(6, orange.getCurrentVolume());
+        assertEquals(56, orange.getCurrentVolume());
     }
 
     @Test
     public void shouldSoundVolumePlus2() {
-        int currentVolume = 11;
+        int currentVolume = 0;
         orange.setCurrentVolume(currentVolume);
         orange.soundVolumePlus();
         assertEquals(1, orange.getCurrentVolume());
@@ -108,10 +108,10 @@ class RadioTest {
 
     @Test
     public void shouldSoundVolumeMinos() {
-        int currentVolume = 5;
+        int currentVolume = 1;
         orange.setCurrentVolume(currentVolume);
         orange.soundVolumeMinos();
-        assertEquals(4, orange.getCurrentVolume());
+        assertEquals(0, orange.getCurrentVolume());
     }
 
     @Test
@@ -125,7 +125,7 @@ class RadioTest {
     @Test
     public void shouldSoundVolumeMinos2() {
         int currentVolume = -1;
-            orange.setCurrentVolume(currentVolume);
+        orange.setCurrentVolume(currentVolume);
         orange.soundVolumeMinos();
         assertEquals(0, orange.getCurrentVolume());
     }
